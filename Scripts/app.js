@@ -1,3 +1,9 @@
+/**
+ * Name: Steven Mitchell
+ * Student ID: 100506443
+ * Date: Mar 16, 2020
+ */
+
 class Contact
 {
     constructor(contactName = "", emailAddress = "", contactNumber = "", contactMessage = "")
@@ -41,7 +47,7 @@ let app;
      */
     function Start()
     {
-       PageSwitcher();
+        PageSwitcher();
 
         Main();
     }
@@ -50,9 +56,9 @@ let app;
     {
         let name = window.location.pathname;
 
-       let pageName = name.substring(1, name.length - 5);
+        let pageName = name.substring(1, name.length - 5);
 
-       DisplayHomePageContent();
+        DisplayHomePageContent();
     }
 
     /**
@@ -76,16 +82,16 @@ let app;
         try {
             // Step 2 - instantiate an XHR object
             let XHR = new XMLHttpRequest();
- 
+
             // Step 3 - attach an event listener
             XHR.addEventListener("readystatechange", function(){
-             if((XHR.readyState === 4) && (XHR.status === 200))
-             {
-                 // Step 6 - do something with the data
-                 let content =  XHR.responseText;
- 
-                 container.innerHTML = content;
- 
+            if((XHR.readyState === 4) && (XHR.status === 200))
+            {
+                // Step 6 - do something with the data
+                let content =  XHR.responseText;
+
+                container.innerHTML = content;
+
                 if(pageName)
                 {
                     document.getElementById(pageName).className = "nav-item active";
@@ -96,16 +102,16 @@ let app;
                     callback();
                 }
                 
-             }
- 
+            }
+
             });
- 
+
             // Step 4. - code your request
             XHR.open("GET",filePath, async);
- 
+
             // Step 5 - send the request to the server
             XHR.send();
- 
+
         } catch (error) {
             
         }
@@ -122,7 +128,7 @@ let app;
 
         for (const child of children) {
             navLinks[child.id]  = document.getElementById(child.id);
-             navLinks[child.id].children[0].addEventListener("click", function(){
+            navLinks[child.id].children[0].addEventListener("click", function(){
                 switch(child.id)
                 {
                     case "home":
@@ -146,19 +152,17 @@ let app;
                 }
             }); 
         }
-        
     }
 
     function DisplayHomePageContent()
     {
         document.title = "WEBD6201 - Home";
 
-       LoadPageContent("mainHeader","./Views/partials/header.html", activateNavbar, "home");
+        LoadPageContent("mainHeader","./Views/partials/header.html", activateNavbar, "home");
 
-       LoadPageContent("mainContent", "./Views/content/home.html");
+        LoadPageContent("mainContent", "./Views/content/home.html");
 
-       LoadPageContent("mainFooter","./Views/partials/footer.html");
-       
+        LoadPageContent("mainFooter","./Views/partials/footer.html");
     }
 
     function DisplayProductsContent()
@@ -212,10 +216,10 @@ let app;
             });
         
             // 4. OPEN A CHANNEL - MAKE A REQUEST WITH THE APPROPRIATE URL
-             XHR.open("GET","./data/products.json",true);
+            XHR.open("GET","./data/products.json",true);
 
-             // 5. SEND THE REQUEST TO THE SERVER
-             XHR.send();
+            // 5. SEND THE REQUEST TO THE SERVER
+            XHR.send();
         } catch (error) {
             console.log("Error: " + error);
         }
@@ -364,7 +368,7 @@ let app;
 
         $("#loginForm").submit  ((e)=>
         {
-           
+
             e.preventDefault();
             e.stopPropagation();
             $("#loginForm")[0].reset();
@@ -406,18 +410,18 @@ let app;
         // Task 1 b
 
         $("ul").on("click", ".editButton", function(){
-           let editText = $(this).parent().parent().children(".editTextInput");
-           let text = $(this).parent().parent().text();
-           editText.val(text);
-           editText.show();
-           editText.select();
-           editText.keypress(function(event){
+            let editText = $(this).parent().parent().children(".editTextInput");
+            let text = $(this).parent().parent().text();
+            editText.val(text);
+            editText.show();
+            editText.select();
+            editText.keypress(function(event){
             if(event.keyCode == "13")
             {
                 editText.hide();
                 $(this).parent().children("#taskText").text(editText.val());
             }
-           });
+            });
         });
 
         // Task 1 c
@@ -435,7 +439,7 @@ let app;
      */
     function Main()
     {
-       
+        
     }
     
     
