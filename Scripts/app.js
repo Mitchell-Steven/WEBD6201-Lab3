@@ -165,9 +165,11 @@ let app;
         LoadPageContent("mainFooter","./Views/partials/footer.html");
 
         //delegate with a function that injects the tasklist age when the task list button is clicked
-        $("main").delegate("button", "click", function()
+        $("main").delegate("#taskListButton", "click", function()
         {
-            LoadPageContent("mainContent", "./Views/content/tasklist.html");
+            //LoadPageContent with a callback to the DisplayTaskList function so that the task list page will properly function
+            //when it is loaded up
+            LoadPageContent("mainContent", "./Views/content/tasklist.html", DisplayTaskList);
         });
     }
 
