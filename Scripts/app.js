@@ -163,6 +163,12 @@ let app;
         LoadPageContent("mainContent", "./Views/content/home.html");
 
         LoadPageContent("mainFooter","./Views/partials/footer.html");
+
+        //delegate with a function that injects the tasklist age when the task list button is clicked
+        $("main").delegate("button", "click", function()
+        {
+            LoadPageContent("mainContent", "./Views/content/tasklist.html");
+        });
     }
 
     function DisplayProductsContent()
